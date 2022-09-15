@@ -16,16 +16,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest, rhel, centos, debian
-
+    strategy:
+  
+      matrix:
+        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10"]
+        
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3
+    - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
-        python-version3-7-14: "3.7.14"
-        python-version3-8-14: "3.8.14"
-        python-version3-9-14: "3.9.14"
-        python-version3-10-7: "3.10.7"
+          python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
