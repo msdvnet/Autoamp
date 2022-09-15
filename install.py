@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 # Initalize variables for installer
 listOS = '';
 # Installer title
